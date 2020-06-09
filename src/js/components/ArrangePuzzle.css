@@ -1,0 +1,7 @@
+.arrangeHorizontally > * {
+    display: inline-block;
+    text-align: center;
+}
+.arrangeVertically > * {
+    display: block;
+}
