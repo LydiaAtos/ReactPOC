@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Card from "./Card";
-import UserInput from "./UserInput";
-import ArrangePuzzle from "./ArrangePuzzle";
+import Home from "./Home";
 
 class Form extends Component {
   constructor() {
@@ -26,9 +24,10 @@ class Form extends Component {
 
   render() {
     return (
-    <div>
-        <ArrangePuzzle puzzleType='number'/>
-    </div>
+      <div>
+        <Home></Home>
+      </div>
+
     );
   }
 }
