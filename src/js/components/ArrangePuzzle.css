@@ -5,3 +5,17 @@
 .arrangeVertically > * {
     display: block;
 }
+button {
+    margin-top: 10px;
+    margin-left: 40px;
+    margin-right: 20px;
+    padding: 10px;
+    padding-left: 15px;
+    padding-right: 15px;
+    font-size: large;
+    color: greenyellow;
+    border-style: solid;
+    border-color: crimson;
+    background-color: crimson;
+    
+}

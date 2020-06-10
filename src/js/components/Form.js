@@ -9,7 +9,7 @@ class Form extends Component {
     super();
 
     this.state = {
-      value: ""
+      value: "number"
     };
 
     this.handleChange = this.handleChange.bind(this);
@@ -27,7 +27,14 @@ class Form extends Component {
   render() {
     return (
     <div>
-        <ArrangePuzzle puzzleType='number'/>
+        <ArrangePuzzle puzzleType={this.state.value}/>
+
+        <br/>
+        <br/>
+      <p>State Value is {this.state.value}</p>
+
+        <button value = "test" onClick={this.handleChange}>Alpha</button>
+        <button value = "number" onClick={this.handleChange}>Number</button>
     </div>
     );
   }

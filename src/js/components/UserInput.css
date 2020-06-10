@@ -1,0 +1,9 @@
+.UserInput {
+    width: 58px;
+    height: 40px;
+    margin-right: 15px;
+    margin-left: 15px;
+    font-size: x-large;
+    border-style: double;
+    border-color: tomato;
+}
