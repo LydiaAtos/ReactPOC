@@ -160,7 +160,7 @@ export default function ArrangePuzzle(props) {
 
     return(
             <div className={styles.arrangeHorizontally}>
-            <h3>{title}</h3>
+            <h2>{title}</h2>
             <br/>
             <Card id="first-card" value={shuffledArray[0]}/> 
             <Card id="second-card" value={shuffledArray[1]}/> 
