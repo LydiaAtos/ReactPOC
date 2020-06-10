@@ -1,4 +1,4 @@
-import React,  { useState, useEffect, useRef, createRef } from 'react';
+import React,  { useState, useEffect, useRef } from 'react';
 import Card from './Card';
 import styles from './ArrangePuzzle.css';
 import UserInput from './UserInput';
@@ -171,8 +171,10 @@ export default function ArrangePuzzle(props) {
             <UserInput id="three-input" ref = {answerThree}/>
             <br/>
             <br/>
-            <button id="submit-btn" value={statusSubmit} onClick={handleSubmit}>Submit</button>
-            <button id="next-btn" value={statusNext} onClick={handleNext}>Next</button>
+            <button id="submit-btn" value={statusSubmit} 
+            className={styles.puzzleButton} onClick={handleSubmit}>Submit</button>
+            <button id="next-btn" value={statusNext} 
+            className={styles.puzzleButton} onClick={handleNext}>Next</button>
         </div>
     );
 

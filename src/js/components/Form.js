@@ -1,8 +1,6 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
-import Card from "./Card";
-import UserInput from "./UserInput";
-import ArrangePuzzle from "./ArrangePuzzle";
+import Home from "./Home";
 
 class Form extends Component {
   constructor() {
@@ -26,16 +24,10 @@ class Form extends Component {
 
   render() {
     return (
-    <div>
-        <ArrangePuzzle puzzleType={this.state.value}/>
-
-        <br/>
-        <br/>
-      <p>State Value is {this.state.value}</p>
-
-        <button value = "test" onClick={this.handleChange}>Alpha</button>
-        <button value = "number" onClick={this.handleChange}>Number</button>
-    </div>
+      <div>
+        <Home></Home>
+        
+      </div>
     );
   }
 }

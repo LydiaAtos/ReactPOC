@@ -10,6 +10,7 @@ module.exports = {
           loader: "babel-loader"
         }
       },
+
       {
         test: /\.css$/,
         use: [
@@ -21,6 +22,7 @@ module.exports = {
             }
           }
         ]
+
       }
     ]
   },

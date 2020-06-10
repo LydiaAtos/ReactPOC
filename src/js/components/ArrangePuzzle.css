@@ -5,7 +5,7 @@
 .arrangeVertically > * {
     display: block;
 }
-button {
+.puzzleButton {
     margin-top: 10px;
     margin-left: 40px;
     margin-right: 20px;
