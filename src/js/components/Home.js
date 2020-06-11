@@ -17,8 +17,8 @@ function Home() {
         <div>
            <h1 className="header">Welcome to Puzzle World</h1>
            
-           <button className="button" value="number" onClick={handleSubmit} >Number </button>
-           <button value="alphabets" onClick={handleSubmit}>Alphabets</button>
+           <button className="button-anim" value="number" onClick={handleSubmit} >Numbers </button>
+           <button className="button-anim" value="alphabets" onClick={handleSubmit}>Alphabets</button>
 
            <ArrangePuzzle puzzleType = {value}/>
         </div>
