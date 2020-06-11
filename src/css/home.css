@@ -1,4 +1,8 @@
-.header {
+* {
+    margin: 0px;
+    padding: 0px;
+ }
+h1 {
     background-color: #095221;
     color: white;
     text-align: center;
@@ -10,34 +14,32 @@
 
 }
 
-button {
-    padding: 10px 25px;
-    border: none;
-    background-color: burlywood;
-    margin: 25px;
-    font-size: 18px;
-    font-weight: 600;
+div{
+    text-align: center;
 }
 
-.button {
-  position: relative;
-  font-size: 14px;
-  font-weight: 600;
-  text-align: center;
-  padding: 0.7em 1.2em;
-  cursor: pointer;
-  user-select: none;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  height: 32px;
-  min-width: 96px;
-  border-radius: 4px;
-  background-color: #fff;
-  border: 1px solid;
-  color: #fff;
-  -webkit-transition: background 0.2s ease;
-  -moz-transition: background 0.2s ease;
-  -o-transition: background 0.2s ease;
-  transition: background 0.2s ease;
+.button-anim {
+    border: none;
+    background: #404040;
+    color: #ffffff !important;
+    font-weight: 100;
+    padding: 20px;
+    text-transform: uppercase;
+    border-radius: 6px;
+    display: inline-block;
+    transition: all 0.3s ease 0s;
+    text-decoration: none;
+    width: 150px;
+    margin: 15px;
+    
+}
+
+.button-anim:hover {
+    color: #404040 !important;
+    font-weight: 700 !important;
+    letter-spacing: 3px;
+    background: none;
+    -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
+    transition: all 0.3s ease 0s;
 }
