@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from "./Header";
 import TodoList from "./TodoList";
+import Footer from './Fotter';
 
 class Form extends Component {
   constructor() {
@@ -28,13 +29,11 @@ class Form extends Component {
       <div >
         <Header />
         <TodoList />
+        <Footer />
       </div>
-      
-
     );
   }
 }
-
 export default Form;
 
 const wrapper = document.getElementById("container");

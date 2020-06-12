@@ -1,0 +1,11 @@
+.LinkStyle {
+    color: blue;
+    text-decoration: underline;
+    padding: 5px;
+    cursor: pointer;
+}
+
+.selectedStyle {
+    color: orangered;
+    padding: 5px;
+}
