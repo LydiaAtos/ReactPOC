@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+import Header from "./Header";
+import TodoList from "./TodoList";
 
 class Form extends Component {
   constructor() {
@@ -23,13 +25,12 @@ class Form extends Component {
 
   render() {
     return (
-      <form>
-        <input
-          type="text"
-          value={this.state.value}
-          onChange={this.handleChange}
-        />
-      </form>
+      <div >
+        <Header />
+        <TodoList />
+      </div>
+      
+
     );
   }
 }
