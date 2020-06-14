@@ -1,24 +1,28 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import '../../global.css';
 
-function TodoList(){
-    const myList = ['a', 'b', 'c', 'd', 'e'];
-    const TodoListItem = () => (
-        <ul>
-            {myList.map(function(item){
-                return <li key={item}>{item}</li>
-            })
+import { useSelector, useDispatch } from "react-redux";
+import { REMOVE_ACTIVE } from "./UiReducer";
 
+function TodoList () {
+    const ui = useSelector(state => state.ui);
+    const dispatch = useDispatch();
+
+    const TodoListItem = (element) => (
+        console.log("TodoListItem" + JSON.stringify(element)),
+        <ul>
+            {element.list.map(function(item){
+                return <li key={item} 
+                onClick={() => dispatch({ type:REMOVE_ACTIVE, payload: {item} })}>{item}</li>
+            })
             }
         </ul>
     );
 
-    return(
-        <div>
-            <TodoListItem className="list-item" list= {myList} />
-        </div>
-    );
-
+    console.log("redux status " + ui.userAction);
+    return <Fragment>
+        <TodoListItem className="list-item" list= {ui.active} />
+    </Fragment>
 } 
 
 export default TodoList;

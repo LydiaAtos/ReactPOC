@@ -1,48 +1,56 @@
-import React, { Fragment, useRef } from "react";
-import styles from './sytles/Footer.css';
+import React, { useRef, Fragment} from 'react'
+import './sytles/Footer.css'
+import { SHOW_ALL, SHOW_ACTIVE, SHOW_COMPLETED } from "./UiReducer";
+import { useSelector, useDispatch } from "react-redux";
 
-export default function Fotter() {
+export default function Fotter () {
+  const ui = useSelector(state => state.ui);
+  const dispatch = useDispatch();
 
-    const allRef = useRef();
-    const Completed = useRef();
-    const Active = useRef();
+  const refs = [useRef(), useRef(), useRef()]
 
-    function onMouseOver(event) {
-        //console.log(event.target);
-        //console.log(event);
-        
-    }
+  function onMouseOver (event) {
+    // console.log(event.target);
+    // console.log(event);
+  }
 
-    function onClick(event) {
-        console.log(event.target.id);
-        console.log(allRef.current.id);
+  function onClick (event) {
+    console.log(event.target.id)
 
-        allRef.current.className = "LinkStyle";
-        Completed.current.className = "LinkStyle";
-        Active.current.className = "LinkStyle";
-        event.target.className = "selectedStyle";
-    }
+    refs.forEach(element => {
+      console.log(element)
+      if (event.target.id === element.current.id) {
+        element.current.className = 'selectedStyle'
+      } else {
+        element.current.className = 'LinkStyle'
+      }
+      if("all_label" == event.target.id)
+        dispatch({ type:SHOW_ALL })
+      else if("active_label" == event.target.id)
+        dispatch({ type:SHOW_ACTIVE })
+      else if("completed_label" == event.target.id)
+        dispatch({ type:SHOW_COMPLETED })
+    })
+  }
 
-
-    return (
+  return (
     <Fragment>
-        <label >Show:</label> 
-
-        <label 
+      <label >Show:</label>
+      <label
         id="all_label"
-        ref={allRef} 
-        onMouseOver={onMouseOver} 
-        onClick={onClick} 
+        ref={refs[0]}
+        onMouseOver={onMouseOver}
+        onClick={onClick}
         className="selectedStyle">
             All </label>
-        <label 
+      <label
         id="active_label"
-        ref={Active} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
+        ref={refs[1]} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
             Active</label>
-        <label 
+      <label
         id="completed_label"
-        ref={Completed} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
+        ref={refs[2]} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
             Completed</label>
     </Fragment>
-    );
+  )
 }
