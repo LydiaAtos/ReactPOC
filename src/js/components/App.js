@@ -8,9 +8,6 @@ import { createStore } from 'redux'
 import Store from "./Store";
 import { Provider } from "react-redux";
 
-
-//const store = createStore(rootReducer)
-
 class Test extends Component {
   constructor() {
     super();

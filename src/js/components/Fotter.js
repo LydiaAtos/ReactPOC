@@ -9,14 +9,9 @@ export default function Fotter () {
 
   const refs = [useRef(), useRef(), useRef()]
 
-  function onMouseOver (event) {
-    // console.log(event.target);
-    // console.log(event);
-  }
 
   function onClick (event) {
     console.log(event.target.id)
-
     if("all_label" == event.target.id) {
       dispatch({ type:SHOW_ALL })
     } else if("active_label" == event.target.id) {
@@ -49,17 +44,16 @@ export default function Fotter () {
       <label
         id="all_label"
         ref={refs[0]}
-        onMouseOver={onMouseOver}
         onClick={onClick}
         className="selectedStyle">
             All </label>
       <label
         id="active_label"
-        ref={refs[1]} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
+        ref={refs[1]} onClick={onClick} className="LinkStyle">
             Active</label>
       <label
         id="completed_label"
-        ref={refs[2]} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
+        ref={refs[2]} onClick={onClick} className="LinkStyle">
             Completed</label>
      
     </Fragment>
