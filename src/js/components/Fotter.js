@@ -17,24 +17,34 @@ export default function Fotter () {
   function onClick (event) {
     console.log(event.target.id)
 
+    if("all_label" == event.target.id) {
+      dispatch({ type:SHOW_ALL })
+    } else if("active_label" == event.target.id) {
+      dispatch({ type:SHOW_ACTIVE })
+    } else if("completed_label" == event.target.id) {
+      dispatch({ type:SHOW_COMPLETED })
+    }
+  }
+
+  function setStyle() {
     refs.forEach(element => {
       console.log(element)
-      if (event.target.id === element.current.id) {
+      if(element.current == undefined)
+        return
+      if (element.current.id === ui.actionLabel) {
         element.current.className = 'selectedStyle'
       } else {
         element.current.className = 'LinkStyle'
       }
-      if("all_label" == event.target.id)
-        dispatch({ type:SHOW_ALL })
-      else if("active_label" == event.target.id)
-        dispatch({ type:SHOW_ACTIVE })
-      else if("completed_label" == event.target.id)
-        dispatch({ type:SHOW_COMPLETED })
     })
   }
 
+  setStyle()
+
   return (
+    
     <Fragment>
+   
       <label >Show:</label>
       <label
         id="all_label"
@@ -51,6 +61,7 @@ export default function Fotter () {
         id="completed_label"
         ref={refs[2]} onMouseOver={onMouseOver} onClick={onClick} className="LinkStyle">
             Completed</label>
+     
     </Fragment>
   )
 }

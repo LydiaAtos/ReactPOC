@@ -7,24 +7,18 @@ export const ADD_TO_LIST = 'add';
 
 const completedList = ['Morning Walk', 'Buy groceries']
 const activeList= ['Buy Milk', 'Wash hand', 'Wear Mask']
+var actionLabel = 'all_label';
 
 const initialState = {
   toggle: false,
   active: completedList.concat(activeList),
-  userAction: 'all'
+  userAction: 'all',
+  actionLabel: actionLabel
   
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case TOGGLE: {
-        console.log("action : " + action.type);
-        console.log("state : " + state.toggle);
-      return {
-        ...state,
-        toggle: !state.toggle
-      };
-    }
     case REMOVE_ACTIVE: {
         console.log("action : " + action.type);
         console.log("payload : " + JSON.stringify(action.payload))
@@ -32,6 +26,7 @@ export default (state = initialState, action) => {
         let finalList = [];
         
         if(state.userAction == 'active') {
+          actionLabel = 'active_label'
           console.log("user action active: " + JSON.stringify(state.userAction))
           const index = activeList.indexOf(action.payload.item);
           if(index != -1) {
@@ -41,6 +36,7 @@ export default (state = initialState, action) => {
             finalList = activeList;
           } 
         } else if(state.userAction == 'completed') {
+          actionLabel = 'completed_label'
           console.log("user action completed: " + JSON.stringify(state.userAction))
           const index = completedList.indexOf(action.payload.item);
           if(index != -1) {
@@ -50,6 +46,7 @@ export default (state = initialState, action) => {
             finalList = completedList;
           } 
         } else {
+          actionLabel = 'all_label'
           console.log("user action all: " + JSON.stringify(state.userAction))
           let index = completedList.indexOf(action.payload.item);
           if(index != -1) {
@@ -70,43 +67,52 @@ export default (state = initialState, action) => {
       return {
         ...state,
         active: finalList,
+        actionLabel: actionLabel
       };
     }
     case SHOW_ALL: {
       console.log("action : " + action.type);
       const currentState = "all"
+      actionLabel = 'all_label'
     return {
       ...state,
       active: completedList.concat(activeList),
-      userAction: currentState
+      userAction: currentState,
+      actionLabel: actionLabel
     };
    }
    case SHOW_ACTIVE: {
       console.log("action : " + action.type);
       const currentState = "active"
+      actionLabel = 'active_label'
     return {
       ...state,
       active: activeList,
-      userAction: currentState
+      userAction: currentState,
+      actionLabel: actionLabel
     };
   }
   case ADD_TO_LIST:
     console.log("action : " + action.type);
     console.log("text : " + action.payload);
     const currentState = "active";
+    actionLabel = 'active_label'
     activeList.push(action.payload);
     return {
       ...state,
       active: activeList,
-      userAction: currentState
+      userAction: currentState,
+      actionLabel: actionLabel
     };
   case SHOW_COMPLETED: {
     console.log("action : " + action.type);
     const currentState = "completed"
+    actionLabel = 'completed_label'
   return {
     ...state,
     active: completedList,
-    userAction: currentState
+    userAction: currentState,
+    actionLabel: actionLabel
   };
  }
 
