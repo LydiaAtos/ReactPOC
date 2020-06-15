@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import ReactDOM from "react-dom";
 import Header from "./Header";
 import TodoList from "./TodoList";
-import Footer from './Fotter';
+import Footer from './Footer';
 import { createStore } from 'redux'
 
 import Store from "./Store";

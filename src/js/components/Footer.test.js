@@ -1,6 +1,6 @@
   
 import '@testing-library/jest-dom/extend-expect';
-import Footer from './Fotter';
+import Footer from './Footer';
 import React, { Component } from 'react';
 import { configure, shallow, mount } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
@@ -10,7 +10,7 @@ import Store from "./Store";
 
 configure({ adapter: new Adapter() });
 
-describe('Fotter testing', () => {
+describe('Footer testing', () => {
     let wrapper;
     wrapper = mount(
         <Provider store={Store}>

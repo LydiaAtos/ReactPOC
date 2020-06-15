@@ -44,8 +44,7 @@ export default function Fotter () {
       <label
         id="all_label"
         ref={refs[0]}
-        onClick={onClick}
-        className="selectedStyle">
+        onClick={onClick} className="selectedStyle">
             All </label>
       <label
         id="active_label"
