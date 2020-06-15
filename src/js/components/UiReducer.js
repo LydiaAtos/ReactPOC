@@ -51,6 +51,19 @@ export default (state = initialState, action) => {
           } 
         } else {
           console.log("user action all: " + JSON.stringify(state.userAction))
+          let index = completedList.indexOf(action.payload.item);
+          if(index != -1) {
+            console.log("index " + index);
+            var removedItem = completedList.splice(index, 1)
+            activeList.push(removedItem)
+          } else {
+            index = activeList.indexOf(action.payload.item);
+            if(index != -1) {
+              console.log("index " + index);
+              var removedItem = activeList.splice(index, 1)
+              completedList.push(removedItem);
+            } 
+          }
           finalList = completedList.concat(activeList)
         }
 
@@ -80,7 +93,7 @@ export default (state = initialState, action) => {
   case ADD_TO_LIST:
     console.log("action : " + action.type);
     console.log("text : " + action.payload);
-    const currentState = "all";
+    const currentState = "active";
     activeList.push(action.payload);
     return {
       ...state,
