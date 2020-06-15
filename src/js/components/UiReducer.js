@@ -3,6 +3,7 @@ export const REMOVE_ACTIVE = "remove/active";
 export const SHOW_ALL = "showall";
 export const SHOW_ACTIVE = "active";
 export const SHOW_COMPLETED = "completed";
+export const ADD_TO_LIST = 'add';
 
 const completedList = ['Morning Walk', 'Buy groceries']
 const activeList= ['Buy Milk', 'Wash hand', 'Wear Mask']
@@ -11,6 +12,7 @@ const initialState = {
   toggle: false,
   active: completedList.concat(activeList),
   userAction: 'all'
+  
 };
 
 export default (state = initialState, action) => {
@@ -75,6 +77,16 @@ export default (state = initialState, action) => {
       userAction: currentState
     };
   }
+  case ADD_TO_LIST:
+    console.log("action : " + action.type);
+    console.log("text : " + action.payload);
+    const currentState = "all";
+    activeList.push(action.payload);
+    return {
+      ...state,
+      active: activeList,
+      userAction: currentState
+    };
   case SHOW_COMPLETED: {
     console.log("action : " + action.type);
     const currentState = "completed"
